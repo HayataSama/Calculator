@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Calculator</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+</head>
+
+<body>
+  <div class="calculator">
+    <div class="result"></div>
+    <div class="backspace">
+      <i class="fas fa-backspace"></i>
+    </div>
+    <div class="clear"></div>
+    <div class="numbers">
+      <button type="button">7</button>
+      <button type="button">8</button>
+      <button type="button">9</button>
+      <button type="button">4</button>
+      <button type="button">5</button>
+      <button type="button">6</button>
+      <button type="button">1</button>
+      <button type="button">2</button>
+      <button type="button">3</button>
+      <button type="button">0</button>
+      <button type="button">00</button>
+      <button type="button">.</button>
+    </div>
+    <div class="operators">
+      <button type="button">+</button>
+      <button type="button">-</button>
+      <button type="button">*</button>
+      <button type="button">/</button>
+    </div>
+    <div class="clear"></div>
+    <div class="eq">
+      <button id="eq" type="button">=</button>
+    </div>
+    <script>
+      var n1 = null;
+      var n2 =null;
+      var n3 = 0;
+      var result = "";
+      var operator = "";
+
+
+
+
+
+      var div = document.getElementsByClassName("numbers")[0];
+      var buttons = div.getElementsByTagName("button");
+      for (var i = 0; i < buttons.length; i++) {
+        buttons[i].onclick = function() {
+          //alert(this.textContent);
+          document.getElementsByClassName("result")[0].innerText += this.textContent;
+          if (operator.length == 0) {
+            n1 = parseFloat(document.getElementsByClassName("result")[0].innerText);
+          } else if (operator.length > 0) {
+            n2 = parseFloat(document.getElementsByClassName("result")[0].innerText);
+          }
+        }
+      }
+
+
+
+
+      var div2 = document.getElementsByClassName("operators")[0];
+      var buttons2 = div2.getElementsByTagName("button");
+      for (var i = 0; i < buttons2.length; i++) {
+        buttons2[i].onclick = function() {
+          //alert(this.textContent);
+          //document.getElementsByClassName("result")[0].innerText += this.textContent;
+          operator = this.textContent;
+          document.getElementsByClassName("result")[0].innerText = "";
+          if(n1 && n2){
+            n3 = calculate(n1, n2, operator);
+            n1 = null;
+            n2 = null;
+            //operator = "";
+            //alert('here:' + n3);
+          }
+        }
+      }
+
+
+
+
+      document.getElementById("eq").onclick = function() {
+        //alert(this.textContent);
+          n3 = calculate(n1, n2, operator);
+          alert('here2:' + n3);
+      };
+
+function calculate(n1, n2, operator){
+  if (n1 >= 0 && n2 >= 0 && operator.length > 0) {
+    if (operator == "+") {
+      //alert(n1 + n2);
+      n3 += n1 + n2;
+      return n3;
+    }
+
+    if (operator == "-") {
+      //alert(n1 + n2);
+      n3 += n1 - n2;
+      return n3;
+    }
+
+    if (operator == "*") {
+      //alert(n1 + n2);
+      n3 += n1 * n2;
+      return n3;
+    }
+
+    if (operator == "/") {
+      //alert(n1 + n2);
+      n3 += n1 / n2;
+      return n3;
+    }
+
+  }
+}
+
+var bspace = document.getElementsByClassName("backspace")[0];
+var bspacei = bspace.children[0];
+bspacei.onclick = function() {
+  //alert('ok');
+  var num = document.getElementsByClassName("result")[0].innerText = document.getElementsByClassName("result")[0].innerText.substring(0, document.getElementsByClassName("result")[0].innerText.length - 1);
+  if (operator.length == 0) {
+    n1 = parseFloat(num);
+  } else if (operator.length > 0) {
+    n2 = parseFloat(num);
+  }
+}
+
+
+    </script>
+</body>
+
+</html>

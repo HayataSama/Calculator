@@ -1,0 +1,124 @@
+@font-face {
+font-family: 'sans';
+font-style: normal;
+font-weight: normal;
+src: local('Samsung Sans Regular'), url('SamsungSans-Regular.woff') format('woff');
+}
+body {
+  font-family: sans;
+}
+.calculator {
+  width: auto;
+  height: auto;
+  margin: 50px auto;
+  box-shadow: -5px 5px 20px #ccc;
+  border-radius: 3px;
+  display: table;
+}
+.result {
+  height: 100px;
+  width: 75%;
+  margin: 10px 20px;
+  display: table;
+  padding: 10px;
+  border-radius: 3px;
+  background: #fff;
+  font: 50px sans;
+  color: #AD1457;
+  float: left;
+}
+.backspace {
+  float: right;
+  margin-right: 20px;
+  width: auto;
+  height: 100px;
+  position: relative;
+  margin-top: 20px;
+  direction: rtl;
+}
+.backspace i {
+  font-size: 30px;
+  color: #AD1457;
+  width: 37.5px;
+  height: 30px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+.numbers {
+  display: table;
+  width: 360px;
+  float: left;
+  margin-left: 20px;
+}
+.numbers button{
+  width: 100px;
+  height: 100px;
+  box-shadow: inset 0 0 0 2px #AD1457;
+  border: none;
+  border-radius: 3px;
+  margin: 10px 10px 10px 0;
+  line-height: 110px;
+  background: white;
+  color: #AD1457;
+  font: 70px sans;
+  cursor: pointer;
+}
+.numbers button:focus {
+  outline: none;
+  background: #AD1457;
+  transition: background 0.3s;
+  color: #fff;
+}
+.operators {
+  width: 100px;
+  float: right;
+  margin-right: 20px;
+}
+.operators button {
+  width: 100px;
+  height: 100px;
+  background: #AD1457;
+  border: none;
+  border-radius: 3px;
+  margin: 10px 0 10px 0;
+  font: 70px sans;
+  line-height: 110px;
+  color: #fff;
+  cursor: pointer;
+}
+.operators button:focus {
+  outline: none;
+  background: #fff;
+  box-shadow: inset 0 0 0 2px #AD1457;
+  color: #AD1457;
+  transition: all 0.3s;
+}
+.clear {
+  clear: both;
+}
+.eq {
+  width: 92%;
+  display: table;
+  margin: 0 auto 20px auto;
+}
+.eq button {
+  width: 100%;
+  height: 100px;
+  background: #AD1457;
+  border: none;
+  border-radius: 3px;
+  margin: 10px 0 10px 0;
+  line-height: 110px;
+  color: #fff;
+  font: 70px sans;
+  cursor: pointer;
+}
+.eq button:focus {
+  outline: none;
+  background: #fff;
+  box-shadow: inset 0 0 0 2px #AD1457;
+  color: #AD1457;
+  transition: all 0.3s;
+}
